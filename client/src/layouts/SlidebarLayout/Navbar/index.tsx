@@ -1,11 +1,11 @@
 import { Avatar, Box, InputAdornment, Stack, TextField, Typography } from '@mui/material'
 import React from 'react'
 import SearchIcon from '@mui/icons-material/SearchRounded';
-import calender from "../../asserts/images/calender.png";
+import calender from "../../../asserts/images/calender.png";
 import NotificationsIcon from '@mui/icons-material/Notifications';
 const Header = () => {
     return (
-        <Box sx={{ backgroundColor: "white", height: "70px", width: "98vw", }}>
+        <Box sx={{ backgroundColor: "white", height: "70px", width: "81.7vw", }}>
 
             <Stack flexDirection={'row'} sx={{ marginTop: "10px", justifyContent: "space-around" }}>
                 {/* <Stack  flexDirection={'row'} sx={{gap:"",justifyContent:"space-around"}}> */}

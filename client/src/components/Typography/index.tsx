@@ -2,17 +2,17 @@ import { Stack, Typography } from '@mui/material'
 import React from 'react'
 
 type TypoProps ={
-    text1: string,
-    text2: string,
+    text1: any,
+    text2: any,
 }
 
-const Typographys = (props: TypoProps) => {
+const TypographyText = (props: TypoProps) => {
   return (
  <Stack>
  <Typography> {props.text1}</Typography>
- <Typography> {props.text1}</Typography>
+ <Typography> {props.text2}</Typography>
  </Stack>
   )
 }
 
-export default Typographys
+export default TypographyText

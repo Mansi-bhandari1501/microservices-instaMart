@@ -13,10 +13,9 @@ const Buttons = (props: ButtonProps) => {
    <Button >{props.icon} 
    <Typography 
    sx={{
-
     textTransform:"none",
     color:"black",
-    marginLeft:"15px",
+    // marginLeft:"15px",
     fontFamily:"poppins",
     fontWeight:500, 
     fontSize:"18px", 

@@ -1,18 +1,10 @@
 import React from 'react'
-import SlideBar from '../SlidebarLayout'
-import Header from '../HeaderLayout'
-import { Box, Stack } from '@mui/material'
+import { Outlet } from 'react-router-dom'
 
-const BaseLayout = () => {
-  return (
-    <Box sx={{backgroundColor:"#F6F8FF"}}>
-
-    <Stack flexDirection={'row'} gap={'3px'}>
-      <SlideBar/>
-      <Header/>
-    </Stack>
-    </Box>
-  )
+function BaseLayout() {
+    return (
+        <Outlet />
+    )
 }
 
 export default BaseLayout

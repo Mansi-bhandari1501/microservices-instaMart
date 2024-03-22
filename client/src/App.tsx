@@ -1,13 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import SlideBar from "./layouts/SlidebarLayout"
-import BaseLayout from './layouts/BaseLayout';
+// import SidebarLayout from './layouts/';
+import { useRoutes } from 'react-router';
+import routes from './routes';
+
 function App() {
+  const content = useRoutes(routes);
   return (
-    <div className="App">
-      <BaseLayout/>
-    </div>
+    <>
+      {content}
+    </>
   );
 }
 
