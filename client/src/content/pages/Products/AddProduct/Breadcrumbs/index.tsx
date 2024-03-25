@@ -37,7 +37,7 @@ export default function CustomSeparator() {
   ];
 
   return (
-    <Stack spacing={2}>
+    <Stack  spacing={2}>
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         {breadcrumbs}
       </Breadcrumbs>

@@ -8,11 +8,11 @@ type TypoProps ={
 
 const TypographyText = (props: TypoProps) => {
   return (
- <Stack>
+ <Stack marginTop={"10px"} marginLeft={"20px"}>
  <Typography> {props.text1}</Typography>
  <Typography> {props.text2}</Typography>
  </Stack>
   )
 }
 
-export default TypographyText
+export default TypographyText;
