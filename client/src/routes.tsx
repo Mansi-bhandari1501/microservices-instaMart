@@ -8,6 +8,9 @@ import Settings from './content/pages/Settings';
 import Dashboard from './content/pages/Dashboard';
 import AllProduct from './content/pages/Products/AllProduct';
 import AddProduct from './content/pages/Products/AddProduct';
+import EditProduct from './content/pages/Products/EditProduct';
+import Orders from './content/pages/Orders';
+import OrderDetail from './content/pages/Orders/orderDetails';
 // import Slide from './layouts/BaseLayout';
 // import Login from '../pages/Login';
 // import SignUp from '../pages/SignUp';
@@ -64,7 +67,7 @@ const routes: RouteObject[] = [
             {
                 path: '',
  
-                element: <Navigate to="addProduct" replace />
+                element: <Navigate to="allProduct" replace />
             },
             {
                 path: 'addProduct',
@@ -73,7 +76,34 @@ const routes: RouteObject[] = [
             {
                 path: 'allProduct',
                 element: <AllProduct />
+            },
+            {
+                path: 'editProduct',
+                element: <EditProduct />
             }
+        ]
+    },
+    {
+        path: '/orders',
+        element: <SidebarLayout />,
+        children: [
+            {
+                path: '',
+ 
+                element: <Navigate to="orderDetail" replace />
+            },
+            {
+                path: 'order',
+                element: <Orders />
+            },
+            {
+                path: 'orderDetail',
+                element: <OrderDetail />
+            },
+            // {
+            //     path: 'editProduct',
+            //     element: <EditProduct />
+            // }
         ]
     },
 ]

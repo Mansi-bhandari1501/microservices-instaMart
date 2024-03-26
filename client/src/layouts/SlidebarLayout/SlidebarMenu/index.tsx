@@ -15,20 +15,19 @@ import NestedList from './menu';
 import { Outlet } from 'react-router-dom';
 const SlideBar = () => {
   return (
-    <Stack sx={{backgroundColor:"#F6F8FF",flexDirection:"row",gap:"3px"}}>
+    <Stack sx={{ backgroundColor: "#F6F8FF", flexDirection: "row", gap: "3px" }}>
 
-    <Stack sx={{height:"100vh", width:"18vw",backgroundColor:"white"}}>
-      <Stack sx={{flexDirection:"row",marginTop:"10px",gap:"5px"}} >
-        {/* <img style={{width:"40px", height:"30px"}}
+      <Stack sx={{ height: "100vh", width: "18vw", backgroundColor: "white" }}>
+        <Stack sx={{ flexDirection: "row", marginTop: "10px", gap: "5px" }} >
+          {/* <img style={{width:"40px", height:"30px"}}
         src={logo} alt=''></img> */}
-       <Logo style={{marginLeft:"100px" }}/>
-       <Typography  sx={{ fontFamily:"poppins", fontWeight:600,fontSize:"22px"}}>  Flight Ease </Typography>  
+          <Logo style={{ marginLeft: "100px" }} />
+          <Typography sx={{ fontFamily: "poppins", fontWeight: 600, fontSize: "22px" }}>  Flight Ease </Typography>
+        </Stack>
+        <NestedList />
+
       </Stack>
-      <NestedList/>
-     
-      
-    </Stack>
-   
+
     </Stack>
   )
 }

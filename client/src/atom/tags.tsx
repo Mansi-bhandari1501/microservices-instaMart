@@ -12,7 +12,7 @@ export default function Tags(props: tagsProps ) {
   };
 
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack margin={"5px"} direction="row" spacing={1}>
       <Chip label={props.label} onClick={handleClick} />
       {/* <Chip label="Clickable" variant="outlined" onClick={handleClick} /> */}
     </Stack>
