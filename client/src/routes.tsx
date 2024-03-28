@@ -11,6 +11,9 @@ import AddProduct from './content/pages/Products/AddProduct';
 import EditProduct from './content/pages/Products/EditProduct';
 import Orders from './content/pages/Orders';
 import OrderDetail from './content/pages/Orders/orderDetails';
+import Login from './content/pages/Login';
+import Maintaince from './content/pages/Maintaince';
+import Error from './content/pages/404Error';
 // import Slide from './layouts/BaseLayout';
 // import Login from '../pages/Login';
 // import SignUp from '../pages/SignUp';
@@ -32,10 +35,18 @@ const routes: RouteObject[] = [
                 path: '',
                 element: <Navigate to="login" replace />
             },
-            // {
-            //     path: '/login',
-            //     element: <Login />
-            // },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/Maintaince',
+                element: <Maintaince />
+            },
+            {
+                path: '/pageNotFound',
+                element: <Error />
+            },
             // {
             //     path: '/signup',
             //     element: <SignUp />
