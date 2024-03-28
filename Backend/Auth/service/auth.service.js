@@ -2,11 +2,16 @@ import { comparePassword, hash_password } from "../helper/auth.helper.js";
 import authModel from "../model/auth.model.js";
 import JWT from "jsonwebtoken";
 import Producer from "../worker/producer.js";
+import dotenv from 'dotenv'
+
+
+dotenv.config()
 const producer = new Producer();
 const authRegister = async (payload) => {
     try {
+      console.log("PAYLOADDDDD",payload.body)
       const { email, password,role } = payload.body
-      console.log(email, password, role)
+      console.log(email)
       if (!email) {
         throw Object.assign(new Error(), { name: "BAD_REQUEST", message: 'email is required' });
       }
@@ -17,28 +22,34 @@ const authRegister = async (payload) => {
       // if (!role) {
       //   throw Object.assign(new Error(), { name: "BAD_REQUEST", message: 'password is required' });
       // }
-  
+      console.log(email,'email')
       const existingUser = await authModel.findOne({ email });
-  
+
+      console.log(existingUser,"@@@@@")
+
       if (existingUser) {
         throw Object.assign(new Error(), { name: "CONFLICT", message: 'User Already exists' });
       }
-      console.log("BEFORE",email)
-
+     
       //register user
       const hashedPassword = await hash_password(password);
+      const user = await authModel.create({ email:email, password: hashedPassword ,role: role});
+
+      console.log("👌👌👌👌",user)
+
       const routingKey = "hello"
       const message ={
         email,role
       }
+
       const signature = process.env.RABBIT_AUTH_REGISTER_SIGNATURE
       await producer.publishMessage(routingKey,message,signature);
-       console.log("AFTER",message)
-      //save password
-      const user = await new authModel({ email, password: hashedPassword ,role}).save();
-  
+
+      console.log("AFTER",message)
+
       return { user };
     } catch (error) {
+      console.log(error)
       throw error;
     }
   }
@@ -46,7 +57,7 @@ const authRegister = async (payload) => {
   export const authLogin = async (payload) => {
     try {
       const { email, password } = payload.body;
-  
+  console.log(email,password)
       //validation
       if (!email || !password) {
         throw Object.assign(new Error(), { name: "BAD_REQUEST", message: 'Invalid email or password' });

@@ -32,7 +32,7 @@ const ErrorPage = (props: pageProps) => {
                 borderRadius: "15px",
                 textTransform: "none",
                 fontSize:"16px",
-                width:"100px",
+               
                 "&:hover": {
                     backgroundColor: "#004182",
                 }

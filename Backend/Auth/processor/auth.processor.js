@@ -17,6 +17,7 @@ export const registerNewAUTH = async (payload) => {
 export const deleteAUTH = async (payload) => {
     // const {userDetails = {}} = payload
     console.log("jhgfukgwukegfuguj",payload)
+    console.log("delete Auth")
     try {
     console.log(payload)
     const response = await authService.authDelete(payload);

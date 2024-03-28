@@ -23,6 +23,7 @@
     "colors": "^1.4.0",
     "concat-map": "^0.0.1",
     "console-control-strings": "^1.1.0",
+    "cors": "^2.8.5",
     "debug": "^4.3.4",
     "delegates": "^1.0.0",
     "detect-libc": "^2.0.2",

@@ -12,8 +12,8 @@ const authSchema = new mongoose.Schema({
     },
     role:{
         type: String,
-        enum: ["customer", "admin","vendor","deliveryPatner"],
-        default: "customer"
+        enum: ["user", "admin","vendor","deliveryPatner"],
+        // default: "user"
     },
     status:{
         type:String,
@@ -21,5 +21,5 @@ const authSchema = new mongoose.Schema({
         default: "pending"
     }
 },{timestamps: true})
-const authModel = mongoose.model('Auth',authSchema);
-export default authModel;
+const authModel = mongoose.model('auths',authSchema);
+export default authModel;   

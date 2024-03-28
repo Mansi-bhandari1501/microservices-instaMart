@@ -14,6 +14,7 @@ import OrderDetail from './content/pages/Orders/orderDetails';
 import Login from './content/pages/Login';
 import Maintaince from './content/pages/Maintaince';
 import Error from './content/pages/404Error';
+import SignupPage from './content/pages/Signup';
 // import Slide from './layouts/BaseLayout';
 // import Login from '../pages/Login';
 // import SignUp from '../pages/SignUp';
@@ -44,13 +45,13 @@ const routes: RouteObject[] = [
                 element: <Maintaince />
             },
             {
-                path: '/pageNotFound',
+                path: '*',
                 element: <Error />
             },
-            // {
-            //     path: '/signup',
-            //     element: <SignUp />
-            // },
+            {
+                path: '/signup',
+                element: <SignupPage />
+            },
         ]
     },
     {

@@ -29,7 +29,8 @@ async function consumeMessages() {
       if (handle_processor) {
         try {
           const data = JSON.parse(msg?.content?.toString());
-          console.log("DATATAATATATA",data.logDetails.message);
+          console.log("Auth Consumed Signature",msg?.properties?.headers?.type);
+          console.log("Auth Consumed Data",data.logDetails.message);
           await handle_processor(data.logDetails.message);
           channel.ack(msg);
         } catch (error) {

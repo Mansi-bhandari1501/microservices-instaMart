@@ -12,14 +12,14 @@ type cardProps={
 
 const OrderCard = (props: cardProps) => {
   return (
-    <Card sx={{width:"15vw",margin:"20px"}}>
+    <Card sx={{width:"18vw",margin:"20px"}}>
         <Stack direction={"row"} justifyContent={"space-around"} margin={"10px"}>
             {props.icon}
-            <Box>
-                <Typography> {props.heading}</Typography>
-                <Typography>Full Name: {props.Text1}</Typography>
-                <Typography>Email: {props.Text2}</Typography>
-                <Typography>Phone:{props.Text3}</Typography>
+            <Box width={"200px"}>
+                <Typography sx={{fontWeight:600}}> {props.heading}</Typography>
+                <Typography>{props.Text1}</Typography>
+                <Typography>{props.Text2}</Typography>
+                <Typography>{props.Text3}</Typography>
             </Box>
         </Stack>
         <Button>{props.ButtonName}</Button>

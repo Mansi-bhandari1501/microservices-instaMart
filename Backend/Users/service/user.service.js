@@ -30,7 +30,7 @@ const registerUser = async (email,role) => {
         email: email,
         status:"fulfilled"
       }
-      const signature = process.env.RABBIT_PUB_USER_REGISTER_SIGNATURE
+      const signature = process.env.RABBIT_USER_REGISTER_SIGNATURE
       await producer.publishMessage(routingKey,message,signature);
       return { user };
     } catch (error) {
