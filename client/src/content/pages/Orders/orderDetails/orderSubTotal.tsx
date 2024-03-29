@@ -46,7 +46,7 @@ const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
 const OrderSubTotal = () => {
     return (
-    <TableContainer sx={{width:"78vw",margin:"20px",borderRadius:"20px"}} component={Paper}>
+    <TableContainer sx={{width:"80vw",marginLeft:"20px",borderRadius:"20px"}} component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="spanning table">
         <TableHead>
           <TableRow>

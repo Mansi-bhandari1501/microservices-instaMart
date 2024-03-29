@@ -5,7 +5,7 @@ const { createOrder  } = orderController;
 import upload from "../middlewares/upload.middleware.js"
 const router = express.Router();
 
-// router.post('/',upload,createProduct);
+router.post('/',createProduct);
 router.post('/:productId',createOrder);
 router.get('/',fetchAllProduct);
 router.get('/:_id',fetchProduct);

@@ -15,7 +15,7 @@ const Header = () => {
     var year = today.getFullYear();
     var todayDateString = dayName + ", " + date + "/" + Month + "/" + year;
     return (
-        <Box sx={{ backgroundColor: "white", height: "70px", width: "81.7vw", }}>
+        <Box sx={{ backgroundColor: "white", height: "7vh", width: "81.7vw", }}>
 
             <Stack flexDirection={'row'} sx={{ marginTop: "10px", justifyContent: "space-around" }}>
                 {/* <Stack  flexDirection={'row'} sx={{gap:"",justifyContent:"space-around"}}> */}
@@ -31,30 +31,7 @@ const Header = () => {
                     inputProps={{ 'aria-label': 'search....' }}
                 />
             </Box>
-                {/* <TextField className='search-bar' placeholder='Search...'
-                    sx={{
-                        marginTop:"5px",
-                        Width: '380px',
-                        height: '34px',
-                        
-                        "& .MuiOutlinedInput-root": {
-                            height: "34px",
-                            width: "20vw",
-                            border: "1px solid white"
-                        },
-                        "&.MuiInputBase-input-MuiOutlinedInput-input": {
-                            padding: "0px"
-                        }
-
-                    }}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start" >
-                                <SearchIcon style={{ color: 'black' }} />
-                            </InputAdornment>
-                        ),
-                    }}
-                /> */}
+                
                 <Stack flexDirection={'row'} gap={'3vw'}>
                     <Stack flexDirection={'row'} gap={'10px'} marginTop={'10px'}>
 

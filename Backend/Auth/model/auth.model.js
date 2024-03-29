@@ -6,6 +6,9 @@ const authSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    uuId:{
+        type:String
+    },
     password:{
         type:String,
         required: true

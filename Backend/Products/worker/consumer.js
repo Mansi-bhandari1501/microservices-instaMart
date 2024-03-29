@@ -5,7 +5,8 @@ import productProcessor from "../processor/index.js"
 const { registerNewSeller,registerOrder } = productProcessor
 
 const processors = {
-  [process.env.RABBIT_USER_REGISTER_SIGNATURE]: registerNewSeller,
+  // [process.env.RABBIT_USER_REGISTER_SIGNATURE]: registerNewSeller,
+  ["user.user_register"]: registerNewSeller,
   [process.env.RABBIT_ORDER_CREATE_SIGNATURE]: registerOrder
   // [process.env.RABBIT_ORDER_CREATE_SIGNATURE]: registerOrder
 
@@ -28,9 +29,10 @@ async function consumeMessages() {
   // await channel.bindQueue(q.queue, exchangeName, "product");
 
   channel.consume(q.queue, async (msg) => {
-
+console.log(msg)
     const handle_processor = processors[msg?.properties?.type] ;
-
+console.log(msg?.properties?.type)
+console.log("👍👍👍👍👍",handle_processor)
     if (handle_processor) {
       try {
         const receivedData = JSON.parse(msg?.content?.toString());

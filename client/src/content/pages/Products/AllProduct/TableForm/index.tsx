@@ -87,7 +87,7 @@ function TableForm() {
     };
 
     return (
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <Paper sx={{ width: '100%', height:"80vh" }}>
             <TableContainer sx={{ maxHeight: 500 }}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>

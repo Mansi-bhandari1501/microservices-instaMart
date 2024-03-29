@@ -79,12 +79,12 @@ const authRegister = async (payload) => {
       if (!match) {
         throw Object.assign(new Error(), { name: "UNAUTHORIZED", message: 'Invalid Password' });
       }
-  
+  // console.log(user?.uuId,"UUID")
       //TOKEN
-      const token = await JWT.sign({ _id: user._id, role:user.role }, process.env.JWT_SECRET, {
+      const token = await JWT.sign({ _id: user._id, role:user.role, uuId: user.uuId }, process.env.JWT_SECRET, {
         expiresIn: "7d",
       });
-  
+  console.log(token,"Tokennn")
       return { user, token };
     } catch (error) {
       throw error;
@@ -94,10 +94,10 @@ const authRegister = async (payload) => {
   export const authUpdate = async (payload) => {
     try {
       // console.log("👍👍",payload.email)
-      const {email,status}= payload;
+      const {email,status,userId}= payload;
       console.log("👍👍",email,status)
       // let data = authModel.find({ email: { $ne:existingUser} })
-      let data = await authModel.findOneAndUpdate({email} , {status} ,{
+      let data = await authModel.findOneAndUpdate({email} , {status:status, uuId:userId} ,{
         new: true
       });
       console.log(data)

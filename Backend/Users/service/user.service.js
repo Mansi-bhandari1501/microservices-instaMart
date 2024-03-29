@@ -1,5 +1,6 @@
 import userModel from "../models/user.model.js";
 import Producer from "../worker/producer.js";
+import { v4 as uuidv4 } from 'uuid';
 const producer = new Producer();
 
 const routingKey = "user"
@@ -24,11 +25,17 @@ const registerUser = async (email,role) => {
       //register user
       // const hashed_password = await hash_password(password);
       //save password
-      const user = await new userModel({ email, role }).save();
+      const userId = uuidv4();
+      const user = await new userModel({ userId:userId,email, role }).save();
+      const {name,address}= user
       const routingKey = "user"
       const message ={
+        userId:userId,
         email: email,
-        status:"fulfilled"
+        address: address || null,
+        name: name || null,
+        status:"fulfilled",
+        role:role
       }
       const signature = process.env.RABBIT_USER_REGISTER_SIGNATURE
       await producer.publishMessage(routingKey,message,signature);

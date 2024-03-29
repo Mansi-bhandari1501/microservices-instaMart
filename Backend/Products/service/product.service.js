@@ -3,22 +3,22 @@ import productSellerModel from "../models/user.model.js";
 
 export const createProduct = async (payload) => {
   try {
-    let { sellerId, productName, quantity, price, description, productImage, category } = payload.body;
+    let { sellerId, productName, quantity, price, description, category } = payload.body;
 
     console.log(payload.body)
-    if (!sellerId || !productName || !quantity || !price || !category) {
-      throw Object.assign(new Error(), {
-        name: "BAD_REQUEST",
-        message: "Invalid Payload",
-      });
-    }
+    // if (!sellerId || !productName || !quantity || !price || !category) {
+    //   throw Object.assign(new Error(), {
+    //     name: "BAD_REQUEST",
+    //     message: "Invalid Payload",
+    //   });
+    // }
 
-    const files = payload.files;
+    // const files = payload.files;
 
-    const image1 = files?.image1 && (files?.image1[0]?.path || null);
-    const image2 = files?.image2 && (files?.image2[0]?.path || null);
-    const image3 = files?.image3 && (files?.image3[0]?.path || null);
-    const image4 = files?.image4 && (files?.image4[0]?.path || null);
+    // const image1 = files?.image1 && (files?.image1[0]?.path || null);
+    // const image2 = files?.image2 && (files?.image2[0]?.path || null);
+    // const image3 = files?.image3 && (files?.image3[0]?.path || null);
+    // const image4 = files?.image4 && (files?.image4[0]?.path || null);
 
     const newProductData = {
       sellerId: sellerId,
@@ -26,13 +26,14 @@ export const createProduct = async (payload) => {
       description: description,
       category: category,
       price: price,
-      productImage: [image1, image2, image3, image4].filter(Boolean),
+      quantity: quantity
+      // productImage: [image1, image2, image3, image4].filter(Boolean),
     };
 
     let product = await new productModel(newProductData).save();
     return { product };
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     throw error;
   }
 };
@@ -52,17 +53,21 @@ export const deleteProduct = async (payload) => {
 };
 export const registerProductSeller = async (payload) => {
   try {
-    const { sellerId } = payload.data;
-    let existingSeller = await productSellerModel.findOne(sellerId);
-console.log("existingSELLER",existingSeller.sellerId)
+    console.log(payload,"PAYLOADD😂😂😂😂")
+    const  sellerId  = payload?.userId;
+    console.log(sellerId,"gweufffffffeugfuwefgwuegfuwegfuwefgwuefgwukfgweg")
+    // const { role } = payload.role;
+    let existingSeller = await productSellerModel.findOne({sellerId: sellerId});
+    console.log("existingSELLER",existingSeller.sellerId)
     console.log("👍😒😊😁👍😂😁", payload)
-    if (payload.data.role == "seller" && !existingSeller) {
+    if (payload?.role == "vendor" && !existingSeller) {
       const newSellerData = {
-        sellerId: payload.data._id,
-        sellerAddress: payload.data.address,
-        sellerName: payload.data.name
+        sellerId: payload.userId,
+        sellerAddress: payload.address,
+        sellerName: payload.name
       }
       let seller = await new productSellerModel(newSellerData).save();
+      console.log(seller,"SELLERR")
       return { seller };
     }
 

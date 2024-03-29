@@ -5,9 +5,9 @@ const productSchema = new mongoose.Schema({
         type: String,
         // required: true,
     },
-    stock:{
+    quantity:{
         type:Number,
-        required: true,
+        
         default : null
     },
     // rating:{
@@ -29,9 +29,9 @@ const productSchema = new mongoose.Schema({
         type: String
     },
     sellerId:{
-        type: String
-        // type:mongoose.Schema.Types.ObjectId,
-        // ref:"seller"    
+        // type: String
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"seller"    
      },
 
 },{timestamps: true})

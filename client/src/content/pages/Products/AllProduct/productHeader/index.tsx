@@ -11,7 +11,7 @@ interface PropsType {
 function ProductHeader(props: PropsType) {
     const navigate = useNavigate()
     const handleAddProduct = () => {
-        navigate('/home/addproduct')
+        navigate('/products/addProduct')
     }
     return (
         <Stack direction={'row'} justifyContent={'space-between'} alignItems={'start'}>

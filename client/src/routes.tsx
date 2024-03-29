@@ -16,6 +16,7 @@ import Maintaince from './content/pages/Maintaince';
 import Error from './content/pages/404Error';
 import SignupPage from './content/pages/Signup';
 import OrderDetails from './content/pages/Orders/orderDetails';
+import OrderList from './content/pages/Orders/orderList';
 // import Slide from './layouts/BaseLayout';
 // import Login from '../pages/Login';
 // import SignUp from '../pages/SignUp';
@@ -103,7 +104,7 @@ const routes: RouteObject[] = [
             {
                 path: '',
  
-                element: <Navigate to="orderDetail" replace />
+                element: <Navigate to="OrderList" replace />
             },
             {
                 path: 'order',
@@ -112,6 +113,10 @@ const routes: RouteObject[] = [
             {
                 path: 'orderDetail',
                 element: <OrderDetails />
+            },
+            {
+                path: 'OrderList',
+                element: <OrderList />
             },
             // {
             //     path: 'editProduct',

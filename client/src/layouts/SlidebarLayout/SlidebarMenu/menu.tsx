@@ -21,11 +21,14 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import ProductIcon from '@mui/icons-material/Inventory';
 import TaskIcon from '@mui/icons-material/Task';
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 export default function NestedList() {
-  const [open1, setOpen1] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-
+  const [open1, setOpen1] = React.useState(true);
+  const [open2, setOpen2] = React.useState(true);
+  const [open, setOpen] = React.useState(true);
+  const [isLoggedin, setIsLoggedin] = React.useState(false);
+ 
+  const navigate = useNavigate()
   const handleClick = () => {
     setOpen(!open);
   };
@@ -35,7 +38,13 @@ export default function NestedList() {
   const handleClick2 = () => {
     setOpen2(!open2);
   };
-
+  const handleLogout = () => {
+    console.log("Logoutttt")
+    localStorage.removeItem("auth");
+    localStorage.removeItem("persist:root");
+    setIsLoggedin(false);
+    navigate("/")
+  }
   return (
     <Box height={"auto"} marginTop={"35px"} marginLeft={"30px"}>
 
@@ -70,12 +79,12 @@ export default function NestedList() {
               </ListItemIcon>
               <ListItemText primary="All Products" />
             </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} href='/products'>
+            {/* <ListItemButton sx={{ pl: 4 }} href='/products/addProduct'>
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>
               <ListItemText primary="Add Product" />
-            </ListItemButton>
+            </ListItemButton> */}
           </List>
         </Collapse>
         <ListItemButton onClick={handleClick1}>
@@ -131,7 +140,7 @@ export default function NestedList() {
           <ListItemText primary="Settings" />
         </ListItemButton>
 
-        <ListItemButton>
+        <ListItemButton onClick={handleLogout}>
           <ListItemIcon>
             <LogoutIcon sx={{ color: "black" }} />
           </ListItemIcon>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Box, Stack, Typography } from '@mui/material';
 import PaginationRounded from '../orderListNumber';
+import OrderHeader from '../orderHeader';
 
 const columns: GridColDef[] = [
   { field: 'productName', headerName: 'Product ', width: 300 },
@@ -46,10 +47,12 @@ const rows = [
   { id: 9, customerName: 'Roxie', productName: 'Harvey', Status: "pending", Amount: 100147 },
 ];
 
-export default function DataTable() {
+export default function OrderList() {
+
   return (
     <Box height={"70vh"}>
 
+<OrderHeader/>
       <Stack flexDirection={"column"} sx={{
         flexGrow: 1,
         backgroundColor: "white",

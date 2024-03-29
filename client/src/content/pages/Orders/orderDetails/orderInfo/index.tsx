@@ -50,7 +50,7 @@ import PaymentInfoCard from './paymentCard';
 import Note from './Note';
 function OrderShip() {
     return (
-        <Stack gap={1} p={2} sx={{ backgroundColor: 'white', borderRadius: '15px' }}>
+        <Stack gap={1} m={3} p={2} sx={{ backgroundColor: 'white', borderRadius: '15px' }}>
             <Stack direction={'row'} gap={3}>
                 <Box sx={{ fontSize: '18px', fontWeight: '700' }}>Orders ID: #0000</Box>
                 <Box sx={{ backgroundColor: 'rgb(255,183,89)', padding: '5px', fontSize: '14px', fontWeight: '600', borderRadius: '6px' }}>Pending</Box>
@@ -63,9 +63,9 @@ function OrderShip() {
                 </Stack>
             </Stack>
             <Box display={'flex'} gap={2} flexWrap={'wrap'}>
-                <OrderInfoCard icon={<PersonOutlinedIcon sx={{ fontSize: '35px' }} />} header={'Customer'} line1={'Full Name : chetan@gmail.com'} line2={' Name : chetan@gmail.com'} line3={'Phone : 9324292424'} />
-                <OrderInfoCard icon={<ShoppingBagOutlinedIcon sx={{ fontSize: '35px' }} />} header={'Order Info'} line1={'Full Name : chetan@gmail.com'} line2={' Name : chetan@gmail.com'} line3={'Status : Pending'} />
-                <OrderInfoCard icon={<ShoppingBagOutlinedIcon sx={{ fontSize: '35px' }} />} header={'Deliver to'} line1={'Full Name : chetan@gmail.com'} line2={' Name : chetan@gmail.com'} line3={'Status : Pending'} />
+                <OrderInfoCard icon={<PersonOutlinedIcon sx={{ fontSize: '35px' }} />} header={'Customer'} line1={'Full Name : mansi@gmail.com'} line2={' Name : mansi@gmail.com'} line3={'Phone : 9324292424'} />
+                <OrderInfoCard icon={<ShoppingBagOutlinedIcon sx={{ fontSize: '35px' }} />} header={'Order Info'} line1={'Full Name : mansi@gmail.com'} line2={' Name : mansi@gmail.com'} line3={'Status : Pending'} />
+                <OrderInfoCard icon={<ShoppingBagOutlinedIcon sx={{ fontSize: '35px' }} />} header={'Deliver to'} line1={'Full Name : mansi@gmail.com'} line2={' Name : mansi@gmail.com'} line3={'Status : Pending'} />
             </Box>
             <Stack direction={'row'} gap={2}>
                 <PaymentInfoCard />

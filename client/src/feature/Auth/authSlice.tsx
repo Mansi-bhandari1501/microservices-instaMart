@@ -27,22 +27,40 @@ const initalState : initialData = {
 const authSlice = createSlice({
   name: "auth",
   initialState: initalState,
-  reducers: {},
+  reducers: {
+    addNewUser: (state, action: PayloadAction<Auth>) => {
+      state.users.push(action.payload)
+    }
+  },
   extraReducers: (builder) => {
 
     builder.addCase(registerUser.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      console.log(action, "gerh4")
+      console.log(action.payload, "gerh4")
+      const data : any | undefined = action.payload
+      console.log('useSlice data',data)
+      if (data !== undefined) {
+              state.users.push(data?.user)
+            }
       state.loading = false;
+     
    
     });
+    // .addCase(addUser.fulfilled,
+    //   (state, { payload }) => {
+    //     const data: User | undefined = payload
+    //     console.log('useSlice data', typeof (data))
+    //     console.log('useSlice payload', typeof (payload))
+    //     if (data !== undefined) {
+    //       state.users.push(data)
+    //     }
+    //   })
     builder.addCase(registerUser.rejected, (state, action) => {
       console.log(action, "error")
       state.loading = false;
-      console.log("slice", action)
-      // state.error = action.payload;
+    
     });
 
     builder.addCase(loginUser.pending, (state) => {

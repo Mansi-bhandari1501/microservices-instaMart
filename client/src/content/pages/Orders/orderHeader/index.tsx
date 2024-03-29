@@ -15,14 +15,24 @@ import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars';
     const handleChange = (event: SelectChangeEvent) => {
         setStatus(event.target.value as string);
     };
+    var today = new Date();
+    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var dayIndex = today.getDay();
+    var dayName = weekdays[dayIndex];
+    var date = today.getDate();
+    var month = today.getMonth() + 1;
+    var Month
+    Month = month < 10 ? '0' + month : month;
+    var year = today.getFullYear();
+    var todayDateString = dayName + ", " + date + "/" + Month + "/" + year;
   return (
-    <Stack>
+   
 
-    <Box>
+    <Box className="orderHeading" marginTop={0} padding={0}>
       {/* <Typography margin={"20px"} marginBottom={"5px"} fontSize={"24px"} fontWeight={"600"} fontFamily={"Rubik"} lineHeight={"23.7px"}>Orders</Typography> */}
-    <Stack direction={"row"} justifyContent={"space-between"} width={"70vw"}>
-    <HeaderBreadcrumb textStyles={{sx:{height:'32px' , width:'183px',margin:"20px",marginBottom:"0px"}, fontSize:"24px", fontWeight:"600", lineHeight:"28.44px"}} text={'Order List'} breadcrumb = {[{text: 'Home', link : '/'}]}/>      {/* <BasicBreadcrumbs tag1={""} tag2={"Home"} tag3={"OrderList"}/> */}
-     <Box marginTop={"50px"}>Date
+    <Stack direction={"row"} justifyContent={"space-between"} width={"80vw"}>
+    <HeaderBreadcrumb textStyles={{sx:{height:'30px' , width:'183px',margin:"20px",marginBottom:"0px"}, fontSize:"24px", fontWeight:"600", lineHeight:"28.44px"}} text={'Order List'} breadcrumb = {[{text: 'Home', link : '/'}]}/>      {/* <BasicBreadcrumbs tag1={""} tag2={"Home"} tag3={"OrderList"}/> */}
+     <Box marginTop={"50px"} marginRight={"50px"}>{todayDateString}
    {/* <CustomCalender/> */}
         </Box> 
     </Stack>
@@ -81,7 +91,7 @@ import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars';
     </Box>
     </Stack>
     </Box>
-    </Stack>
+
   )
 }
 
