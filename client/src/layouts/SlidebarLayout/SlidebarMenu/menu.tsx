@@ -37,7 +37,7 @@ export default function NestedList() {
   };
 
   return (
-    <Box height={"50vh"} marginTop={"35px"} marginLeft={"30px"}>
+    <Box height={"auto"} marginTop={"35px"} marginLeft={"30px"}>
 
       <List
         sx={{ width: '90%', maxWidth: 360, bgcolor: 'background.paper', height: "50vh" }}

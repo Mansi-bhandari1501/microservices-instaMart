@@ -10,11 +10,12 @@ import AllProduct from './content/pages/Products/AllProduct';
 import AddProduct from './content/pages/Products/AddProduct';
 import EditProduct from './content/pages/Products/EditProduct';
 import Orders from './content/pages/Orders';
-import OrderDetail from './content/pages/Orders/orderDetails';
+import OrderDetail from './content/pages/Orders/orderDetails/orderInfo/paymentCard';
 import Login from './content/pages/Login';
 import Maintaince from './content/pages/Maintaince';
 import Error from './content/pages/404Error';
 import SignupPage from './content/pages/Signup';
+import OrderDetails from './content/pages/Orders/orderDetails';
 // import Slide from './layouts/BaseLayout';
 // import Login from '../pages/Login';
 // import SignUp from '../pages/SignUp';
@@ -110,7 +111,7 @@ const routes: RouteObject[] = [
             },
             {
                 path: 'orderDetail',
-                element: <OrderDetail />
+                element: <OrderDetails />
             },
             // {
             //     path: 'editProduct',

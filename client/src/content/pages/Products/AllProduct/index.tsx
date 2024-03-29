@@ -1,16 +1,19 @@
-import React from 'react'
-import AddProduct from '../AddProduct'
-import TypographyText from '../../../../components/Typography'
-import BasicBreadcrumbs from '../../../../components/Breadcrumbs'
+import { Stack } from '@mui/material'
+import React, { useState } from 'react'
+import ProductHeader from './productHeader'
+import TableForm from './TableForm'
+// import ProductCard from '../../../../components/ProductCards'
+import CardsForm from './allProductCards'
 
-const AllProduct = () => {
-  return (
-    <div>
-      {/* <TypographyText text1='Add Product' text2=<BasicBreadcrumbs /> /> */}
+function ProductDisplayAdmin() {
+    const [table, setTable] = useState<boolean>(false)
+    return (
+        <Stack p={4} gap={2} sx={{  }} >
+            <ProductHeader setTable={setTable} />
+            {table ? <TableForm /> : <CardsForm />}
 
-      <AddProduct />
-    </div>
-  )
+        </Stack>
+    )
 }
 
-export default AllProduct
+export default ProductDisplayAdmin
