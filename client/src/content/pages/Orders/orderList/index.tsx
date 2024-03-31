@@ -3,6 +3,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Box, Stack, Typography } from '@mui/material';
 import PaginationRounded from '../orderListNumber';
 import OrderHeader from '../orderHeader';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const columns: GridColDef[] = [
   { field: 'productName', headerName: 'Product ', width: 300 },
@@ -15,6 +16,9 @@ const columns: GridColDef[] = [
   },
   {
     field: 'Status', headerName: 'Status', type: 'string', width: 180,
+  },
+  {
+    field: 'Status', headerName: 'Status', type: 'string', width: 100,
   },
 ];
 
@@ -48,7 +52,11 @@ const rows = [
 ];
 
 export default function OrderList() {
-
+  const navigate = useNavigate()
+const handleClick =()=>{
+console.log("bwjdgfuwgfuewgf")
+  navigate("/orders/orderDetail")
+}
   return (
     <Box height={"50vh"}>
 
@@ -57,13 +65,13 @@ export default function OrderList() {
         flexGrow: 1,
         backgroundColor: "white",
         // height: "65vh",
-         width: "80vw", marginLeft: "15px",
-          // marginTop: "10px",
+        width: "80vw", marginLeft: "15px",
+        marginTop: "0px",
         borderRadius: "20px"
       }}>
-        <Typography margin={"20px"} fontSize={"20px"} fontWeight={"600"} fontFamily={"Rubik"} lineHeight={"23.7px"}>Recent Purchases</Typography>
+        <Typography margin={"10px"} fontSize={"20px"} fontWeight={"600"} fontFamily={"Rubik"} lineHeight={"23.7px"}>Recent Purchases</Typography>
         <div style={{ height: "auto", width: '100%',borderRadius:"20px" }}>
-          <DataGrid sx={{ margin: "0px", fontFamily: "Open sans", fontWeight: 600, fontSize: "15px" }}
+          <DataGrid onRowClick={handleClick} sx={{ margin: "0px", fontFamily: "Open sans", fontWeight: 600, fontSize: "15px" }}
             rows={rows}
             columns={columns}
             initialState={{

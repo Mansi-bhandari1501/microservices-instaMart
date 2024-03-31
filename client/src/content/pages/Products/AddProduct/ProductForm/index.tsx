@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
-import { Button, Stack, TextField, Typography } from '@mui/material';
+import { Button, IconButton, Stack, TextField, Typography } from '@mui/material';
 import Tags from '../../../../../atom/tags';
 import TypographyText from '../../../../../components/Typography';
 import DragAndDrap from '../../../../../components/DragAnd Drop';
@@ -15,6 +15,8 @@ import { registerProduct } from '../../../../../feature/Products/productAction';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+// import MuiImageSlider from 'mui-image-slider';
+import CloseIcon from '@mui/icons-material/Close';
 // import TypographyText from '../../../../components/Typography'
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -32,10 +34,10 @@ type ProductButtonProps = {
 }
 export default function ProductForm(props: ProductButtonProps) {
   const [file, setFile] = useState(null);
-  const handleChange = (file: any) => {
-    setFile(file);
-    console.log('file: ', file);
-  };
+  // const handleChange = (file: any) => {
+  //   setFile(file);
+  //   console.log('file: ', file);
+  // };
   const navigate=useNavigate();
   const dispatch = useAppDispatch();
   const [productName, setProductName] = useState("");
@@ -46,9 +48,10 @@ export default function ProductForm(props: ProductButtonProps) {
   const [quantity, setQuantity] = useState("");
   const [regularPrice, setRegularPrice] = useState("");
   const [salePrice, setSalePrice] = useState("");
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
 
 
-
+  
   const data = {
 
     productName: productName,
@@ -62,9 +65,9 @@ export default function ProductForm(props: ProductButtonProps) {
     // tag: string
 
   }
-  const navigateTo =()=>{
-    navigate("/products")
-  }
+  // const navigateTo =()=>{
+  //   navigate("/products")
+  // }
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log("frontend", data);
@@ -114,6 +117,30 @@ export default function ProductForm(props: ProductButtonProps) {
     
   };
 
+  const handleChange = (file: File[]) => {
+      const arrayfile = Array.from(file);
+      console.log('filessssssss: ', file);
+      console.log('arrayfile: ', arrayfile);
+
+      const urls = arrayfile.map(a => {
+          console.log(a, "hbk")
+          return URL.createObjectURL(a)
+      });
+      setImageUrls((prev) => [...prev, ...urls]);
+      console.log('urls: ', imageUrls);
+
+  };
+
+  const deleteImg = (index: number) => {
+      console.log("first", index)
+      setImageUrls((prev) =>
+          prev.filter((_, i) => i !== index)
+      )
+  }
+  const handleCancle = () => {
+      navigate(-1)
+  }
+
   return (
     <Box>
 
@@ -122,7 +149,7 @@ export default function ProductForm(props: ProductButtonProps) {
       <Stack flexDirection={"row"} sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "80vh", width: "78vw", marginLeft: "15px", marginTop: "10px",
+        height: "80vh", width: "78vw", marginLeft: "15px", margin: "10px",paddingBottom:"15px"
       }}>
 
         <Stack marginLeft={"10px"} flexDirection={"column"} width={"50vw"} marginTop={"2vh"}>
@@ -221,7 +248,19 @@ export default function ProductForm(props: ProductButtonProps) {
 
               <Box sx={{ width: "20vw", height: "2vh" }}>
                 <FileUploader children={<DragAndDrap file={file} />} handleChange={handleChange} multiple name="file" />
-                <Box marginTop={"150px"}>
+                <Stack flexWrap={'wrap'} direction={'row'} gap={2}>
+                    {imageUrls?.map((a, index) => (
+                      <Box key={index} className="image" sx={{ width: '80px', height: '80px', position: 'relative' }}>
+                          {/* <MuiImageSlider images={imageUrls}/> */}
+                            <img src={a} alt="" style={{borderRadius:"20px" ,position: 'absolute', bottom: '255px', left: '11px',width:"350px",height:"325px"}} />
+                            <IconButton onClick={() => {
+                                deleteImg(index)
+                            }} sx={{ position: 'absolute', bottom: '555px', left: '11px', top: '0px', right: '5px', height: '15px', width: '15px', color: 'black' }}><CloseIcon sx={{  position: 'absolute', bottom: '500px', right: '16px',height: '25px', width: '25px' }} /></IconButton>
+                        </Box>
+                    ))}
+                </Stack>
+                
+                <Stack direction={"row"} marginTop={"100px"} gap={"10px"}>
                   <Button color="primary" onClick={handleSubmit}
                     sx={{
                       width: "100px", bgcolor: "#1C64F2", color: "white", "&:hover": {
@@ -234,10 +273,22 @@ export default function ProductForm(props: ProductButtonProps) {
                     }}>
                     Add
                   </Button>
+                  <Button color="primary" onClick={handleCancle}
+                    sx={{
+                      width: "100px", bgcolor: "white", color: "black",border:"1px solid black", "&:hover": {
+                        backgroundColor: "white",
+                      },
+                      "&:focus-within": {
+                        outline: "1px solid black",
+                        backgroundColor: "#004182",
+                      }
+                    }}>
+                    Cancel
+                  </Button>
                   {/* <Button>{props.btn1}</Button>
                   <Button>{props.btn2}</Button>
                   <Button>{props.btn3}</Button> */}
-                </Box>
+                </Stack>
               </Box>
             </Stack>
           </Grid>

@@ -32,14 +32,14 @@ import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars';
       {/* <Typography margin={"20px"} marginBottom={"5px"} fontSize={"24px"} fontWeight={"600"} fontFamily={"Rubik"} lineHeight={"23.7px"}>Orders</Typography> */}
     <Stack direction={"row"} justifyContent={"space-between"} width={"80vw"}>
     <HeaderBreadcrumb textStyles={{sx:{height:'30px' , width:'183px',margin:"20px",marginBottom:"0px"}, fontSize:"24px", fontWeight:"600", lineHeight:"28.44px"}} text={'Order List'} breadcrumb = {[{text: 'Home', link : '/'}]}/>      {/* <BasicBreadcrumbs tag1={""} tag2={"Home"} tag3={"OrderList"}/> */}
-     <Box marginTop={"50px"} marginRight={"50px"}>{todayDateString}
+     <Box marginTop={"40px"} marginRight={"60px"}>{todayDateString}
    {/* <CustomCalender/> */}
         </Box> 
     </Stack>
     <Stack width={"100%"} flexDirection={'row'} justifyContent={'right'}>
     <Box sx={{ minWidth: 240, width:"100px", mr: '50px'  }}>
-    <FormControl  sx={{ m: 1, width: '200px' }}>
-        <InputLabel  sx={{color:"black"}}>Change Status</InputLabel>
+    <FormControl  sx={{ mb: -3, width: '200px' }}>
+        <InputLabel  sx={{color:"black",}}>Change Status</InputLabel>
         <Select
           value={ status}
           variant='outlined'
