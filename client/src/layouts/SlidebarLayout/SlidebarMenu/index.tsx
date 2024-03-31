@@ -22,7 +22,7 @@ const SlideBar = () => {
           {/* <img style={{width:"40px", height:"30px"}}
         src={logo} alt=''></img> */}
           <Logo style={{ marginLeft: "100px" }} />
-          <Typography sx={{ fontFamily: "poppins", fontWeight: 600, fontSize: "22px" }}>  Flight Ease </Typography>
+          <Typography sx={{ fontFamily: "poppins", fontWeight: 600, fontSize: "22px" }}>  Insta Mart </Typography>
         </Stack>
         <NestedList />
 

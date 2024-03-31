@@ -11,7 +11,7 @@ const columns: GridColDef[] = [
   // { field: 'id', headerName: 'Order ID', width: 70 },
   { field: 'customerName', headerName: 'Customer Name', width: 300 },
   {
-    field: 'Amount', headerName: ' Amount', sortable: false, type: 'string', width: 300
+    field: 'Amount', headerName: ' Amount', sortable: false, type: 'string', width: 200
   },
   {
     field: 'Status', headerName: 'Status', type: 'string', width: 180,
@@ -50,32 +50,34 @@ const rows = [
 export default function OrderList() {
 
   return (
-    <Box height={"70vh"}>
+    <Box height={"50vh"}>
 
 <OrderHeader/>
       <Stack flexDirection={"column"} sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "70vh", width: "78vw", marginLeft: "15px", marginTop: "10px",
+        // height: "65vh",
+         width: "80vw", marginLeft: "15px",
+          // marginTop: "10px",
         borderRadius: "20px"
       }}>
         <Typography margin={"20px"} fontSize={"20px"} fontWeight={"600"} fontFamily={"Rubik"} lineHeight={"23.7px"}>Recent Purchases</Typography>
-        <div style={{ height: 660, width: '100%' }}>
-          <DataGrid sx={{ margin: "10px", fontFamily: "Open sans", fontWeight: 600, fontSize: "15px" }}
+        <div style={{ height: "auto", width: '100%',borderRadius:"20px" }}>
+          <DataGrid sx={{ margin: "0px", fontFamily: "Open sans", fontWeight: 600, fontSize: "15px" }}
             rows={rows}
             columns={columns}
             initialState={{
               pagination: {
-                paginationModel: { page: 0, pageSize: 10 },
+                paginationModel: { page: 0, pageSize: 5 },
               },
             }}
             pageSizeOptions={[5, 10]}
-            hideFooter={true}
+            hideFooter={false}
             checkboxSelection
           />
         </div>
       </Stack>
-      <PaginationRounded />
+      {/* <PaginationRounded /> */}
     </Box>
   );
 }

@@ -15,13 +15,15 @@ const Header = () => {
     var year = today.getFullYear();
     var todayDateString = dayName + ", " + date + "/" + Month + "/" + year;
     return (
-        <Box sx={{ backgroundColor: "white", height: "7vh", width: "81.7vw", }}>
+        <Box sx={{ backgroundColor: "white", height: "7vh",
+         width: "81.7vw",
+          }}>
 
             <Stack flexDirection={'row'} sx={{ marginTop: "10px", justifyContent: "space-around" }}>
                 {/* <Stack  flexDirection={'row'} sx={{gap:"",justifyContent:"space-around"}}> */}
 
 
-                <Box sx={{ backgroundColor: 'rgb(247, 247, 247)', maxWidth: '400px', width: '40%', height: "44px", borderRadius: '12px' }}>
+                <Box sx={{ backgroundColor: 'rgb(247, 247, 247)', maxWidth: '400px', width: '40%', height: "42px", borderRadius: '12px' }}>
                 <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
                     <SearchIcon />
                 </IconButton>

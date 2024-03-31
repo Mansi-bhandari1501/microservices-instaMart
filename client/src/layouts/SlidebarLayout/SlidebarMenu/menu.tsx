@@ -58,7 +58,7 @@ export default function NestedList() {
       //     </ListSubheader>
       //   }
       >
-        <ListItemButton>
+        <ListItemButton  href='/home/dashboard'>
           <ListItemIcon>
             <DashboardLogo />
           </ListItemIcon>
@@ -100,7 +100,7 @@ export default function NestedList() {
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>
-              <ListItemText primary="All Products" />
+              <ListItemText primary="All Ticket" />
             </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>

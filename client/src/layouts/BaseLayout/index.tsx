@@ -1,9 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+// import Header from '../SlidebarLayout/Navbar'
 
 function BaseLayout() {
     return (
-        <Outlet />
+        <div>
+            {/* <Header /> */}
+            <Outlet />
+        </div>
     )
 }
 

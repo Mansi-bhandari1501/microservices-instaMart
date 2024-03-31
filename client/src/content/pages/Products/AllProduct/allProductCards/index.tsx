@@ -14,9 +14,6 @@ function CardsForm() {
                 <ProductCard />
                 <ProductCard />
                 <ProductCard />
-                <ProductCard />
-                
-                <ProductCard />
             </Box>
             <Pagination count={10} shape="rounded" />
         </Stack>

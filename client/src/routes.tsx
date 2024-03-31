@@ -5,7 +5,6 @@ import SidebarLayout from './layouts/SlidebarLayout';
 import BaseLayout from './layouts/BaseLayout';
 // import Dashboard from '../pages/Dashboard';
 import Settings from './content/pages/Settings';
-import Dashboard from './content/pages/Dashboard';
 import AllProduct from './content/pages/Products/AllProduct';
 import AddProduct from './content/pages/Products/AddProduct';
 import EditProduct from './content/pages/Products/EditProduct';
@@ -17,6 +16,10 @@ import Error from './content/pages/404Error';
 import SignupPage from './content/pages/Signup';
 import OrderDetails from './content/pages/Orders/orderDetails';
 import OrderList from './content/pages/Orders/orderList';
+import Dashboard from './content/pages/Dashboard';
+import Home from './content/pages/User/Home';
+import ShipmentLocation from './content/pages/User/Home/Shipment/ShipmentLocation';
+import Header from './layouts/SlidebarLayout/Navbar';
 // import Slide from './layouts/BaseLayout';
 // import Login from '../pages/Login';
 // import SignUp from '../pages/SignUp';
@@ -113,6 +116,33 @@ const routes: RouteObject[] = [
             {
                 path: 'orderDetail',
                 element: <OrderDetails />
+            },
+            {
+                path: 'OrderList',
+                element: <OrderList />
+            },
+            // {
+            //     path: 'editProduct',
+            //     element: <EditProduct />
+            // }
+        ]
+    },
+    {
+        path: '/user',
+        element: <SidebarLayout />,
+        children: [
+            {
+                path: '',
+ 
+                element: <Navigate to="home" replace />
+            },
+            {
+                path: 'home',
+                element: <Home />
+            },
+            {
+                path: 'ShipmentLocation',
+                element: <ShipmentLocation />
             },
             {
                 path: 'OrderList',
