@@ -1,9 +1,9 @@
 import productModel from "../models/product.model.js";
 import productSellerModel from "../models/user.model.js";
-
+import { v4 as uuidv4 } from 'uuid';
 export const createProduct = async (payload) => {
   try {
-    let { sellerId, productName, quantity, price, description, category } = payload.body;
+    let { sellerId, productName, quantity, price, description, category ,sku,brand,tag,regularPrice,salePrice} = payload.body;
 
     console.log(payload.body)
     // if (!sellerId || !productName || !quantity || !price || !category) {
@@ -14,20 +14,32 @@ export const createProduct = async (payload) => {
     // }
 
     // const files = payload.files;
-
+    // let newImage = [];
+    //         if (req.files !== null && req.files.images && req.files.images.length > 0) {
+    //             newImage = req.files.images.map((i) => {
+    //                 return i.path;
+    //             });
+    //             console.log(newImage, "ghvugyiv");
+    //         }
     // const image1 = files?.image1 && (files?.image1[0]?.path || null);
     // const image2 = files?.image2 && (files?.image2[0]?.path || null);
     // const image3 = files?.image3 && (files?.image3[0]?.path || null);
     // const image4 = files?.image4 && (files?.image4[0]?.path || null);
-
+    const productId = uuidv4();
     const newProductData = {
+      uuId: productId,
       sellerId: sellerId,
+      regularPrice:regularPrice,
+      salePrice:salePrice,
+      sku: sku,
+      brand:brand,
+      tag:tag,
       productName: productName,
       description: description,
       category: category,
       price: price,
       quantity: quantity
-      // productImage: [image1, image2, image3, image4].filter(Boolean),
+      // productImage: 
     };
 
     let product = await new productModel(newProductData).save();

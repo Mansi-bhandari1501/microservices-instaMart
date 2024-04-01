@@ -1,9 +1,9 @@
-import { createSlice,type PayloadAction  } from "@reduxjs/toolkit";
-import { getAllProduct,  registerProduct  } from "./productAction";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { getAllProduct, registerProduct } from "./productAction";
 // import { getProduct } from './../../service/auth.service';
 
 export interface product {
-  _id?: string
+  uuId?: string
   productName?: string
   description?: string
   category?: string
@@ -12,7 +12,7 @@ export interface product {
   salePrice?: string
   sku?: string
   quantity?: string
-  tag?: string
+  // tag?: string
 }
 
 type initialData = {
@@ -22,10 +22,10 @@ type initialData = {
 }
 
 
-const initalState : initialData = {
+const initalState: initialData = {
   loading: false,
   error: null,
-  products:[]
+  products: []
 };
 
 const productSlice = createSlice({
@@ -43,14 +43,15 @@ const productSlice = createSlice({
     });
     builder.addCase(registerProduct.fulfilled, (state, action) => {
       console.log(action, "gerh4")
-      console.log(action.payload, "gerh4")
-      const data : any | undefined = action.payload
-      console.log('useSlice data',data)
-      // if (data !== undefined) {
-      //         state.products.push(data?.)
-      //       }
+      console.log(action.payload.data.product, "gerh4")
+      const data: any  = action.payload.data.product
+      console.log('useSlice data', data)
+      if (data !== undefined) {
+              state.products.push(data)
+            }
+            console.log( state.products)
       state.loading = false;
-   
+
     });
     builder.addCase(registerProduct.rejected, (state, action) => {
       console.log(action, "error")
@@ -58,28 +59,28 @@ const productSlice = createSlice({
       console.log("slice", action)
       // state.error = action.payload;
     });
-  //   builder.addCase(getAllProduct.pending,(state)=>{
-  //     state.loading=true;
-  // })
-  // builder.addCase(getAllProduct.fulfilled,(state,action)=>{
-  //     state.loading=false;
-  //     state.error=null
-  //     // console.log(action.payload)
-  //     // console.log( state.contents)
-  //     // const prevPosts = current(state.contents);
-  //     // console.log('prevPosts',prevPosts);
-  //     // // const prevPosts =state.contents
-  //     // const newPosts = action.payload.posts
-  //     // console.log(newPosts,[...prevPosts,...newPosts]);
-  //     // state.product= action.payload;
-  //     // state.contents.push(...action.payload?.posts)
-  //     // console.log(state.contents)
-  // })
-  // builder.addCase(getAllProduct.rejected,(state,action)=>{
-  //     state.loading=false
-  //     state.error= action.error.message
-  // })
-    
+    builder.addCase(getAllProduct.pending, (state) => {
+      state.loading = true;
+    })
+    builder.addCase(getAllProduct.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = null
+      // console.log(action.payload)
+      // console.log( state.contents)
+      // const prevPosts = current(state.contents);
+      // console.log('prevPosts',prevPosts);
+      // // const prevPosts =state.contents
+      // const newPosts = action.payload.posts
+      // console.log(newPosts,[...prevPosts,...newPosts]);
+      // state.product= action.payload;
+      // state.contents.push(...action.payload?.posts)
+      // console.log(state.contents)
+    })
+    builder.addCase(getAllProduct.rejected, (state, action) => {
+      state.loading = false
+      state.error = action.error.message
+    })
+
   },
 });
 

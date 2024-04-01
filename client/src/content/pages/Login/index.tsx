@@ -16,7 +16,7 @@ import {
   import LoginImg from "../../../asserts/images/Login.png" 
 import { useAppDispatch } from "../../../app/hooks";
 import { loginUser } from "../../../feature/Auth/authAction";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
   
 
@@ -149,6 +149,17 @@ import { useNavigate } from "react-router-dom";
             >
               Sign In
             </Button>
+            <p className="quotes">
+                New User?{" "}
+                <span>
+                    <NavLink
+                        style={{ color: "#0a66c2", textDecoration: "none", fontWeight: 600 }}
+                        to="/signup"
+                    >
+                        Join now
+                    </NavLink>
+                </span>
+            </p>
           </Stack>
         </Paper>
       </Box>

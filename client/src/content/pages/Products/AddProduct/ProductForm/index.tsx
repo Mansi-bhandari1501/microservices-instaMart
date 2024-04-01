@@ -38,7 +38,7 @@ export default function ProductForm(props: ProductButtonProps) {
   //   setFile(file);
   //   console.log('file: ', file);
   // };
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
@@ -51,7 +51,7 @@ export default function ProductForm(props: ProductButtonProps) {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
 
 
-  
+
   const data = {
 
     productName: productName,
@@ -72,73 +72,73 @@ export default function ProductForm(props: ProductButtonProps) {
     e.preventDefault();
     console.log("frontend", data);
     dispatch(registerProduct(data))
-    .unwrap()
-            .then((res) => {
-              console.log(res,"❤️❤️❤️❤️")
-                if (res.status == 201) {
-                    console.log(res.data)
-                    // toast.success("Product Added!", {
-                    //   position: "top-center"
-                    // });
-                    navigate("/products")
-                    setTimeout(() => {
-                      toast.success("Product Added!", {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: true,
-                        closeOnClick: false,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                    }, 1);
-                    
-                  //  setTimeout(navigateTo, 5000);
-                    // setTimeout(function(){ navigate("/products")}, 2000);
-                    // setTimeout(navigateTo, 5000);
-                    // navigate("/products")
-                  
-                    
-                  }
-                  else{
+      .unwrap()
+      .then((res) => {
+        console.log(res, "❤️❤️❤️❤️")
+        if (res.status == 201) {
+          console.log(res.data)
+          // toast.success("Product Added!", {
+          //   position: "top-center"
+          // });
 
-                    toast.error("product not Added !", {
-                      position: "top-center"
-                    });
-                  }
-                  setTimeout(
-                    () => navigate("/products"), 
-                    55000
-                  );
-                // console.log(res);
-            });
- 
-    
+
+          toast.success("Product Added!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+
+
+          //  setTimeout(navigateTo, 5000);
+          // setTimeout(function(){ navigate("/products")}, 2000);
+          // setTimeout(navigateTo, 5000);
+          // navigate("/products")
+
+
+        }
+        else {
+
+          toast.error("product not Added !", {
+            position: "top-center"
+          });
+        }
+        // setTimeout(
+        //   () => navigate("/products"), 
+        //   55000
+        // );
+        // console.log(res);
+      });
+
+
   };
 
   const handleChange = (file: File[]) => {
-      const arrayfile = Array.from(file);
-      console.log('filessssssss: ', file);
-      console.log('arrayfile: ', arrayfile);
+    const arrayfile = Array.from(file);
+    console.log('filessssssss: ', file);
+    console.log('arrayfile: ', arrayfile);
 
-      const urls = arrayfile.map(a => {
-          console.log(a, "hbk")
-          return URL.createObjectURL(a)
-      });
-      setImageUrls((prev) => [...prev, ...urls]);
-      console.log('urls: ', imageUrls);
+    const urls = arrayfile.map(a => {
+      console.log(a, "hbk")
+      return URL.createObjectURL(a)
+    });
+    setImageUrls((prev) => [...prev, ...urls]);
+    console.log('urls: ', imageUrls);
 
   };
 
   const deleteImg = (index: number) => {
-      console.log("first", index)
-      setImageUrls((prev) =>
-          prev.filter((_, i) => i !== index)
-      )
+    console.log("first", index)
+    setImageUrls((prev) =>
+      prev.filter((_, i) => i !== index)
+    )
   }
   const handleCancle = () => {
-      navigate(-1)
+    navigate(-1)
   }
 
   return (
@@ -149,7 +149,7 @@ export default function ProductForm(props: ProductButtonProps) {
       <Stack flexDirection={"row"} sx={{
         flexGrow: 1,
         backgroundColor: "white",
-        height: "80vh", width: "78vw", marginLeft: "15px", margin: "10px",paddingBottom:"15px"
+        height: "80vh", width: "78vw", marginLeft: "15px", margin: "10px", paddingBottom: "15px"
       }}>
 
         <Stack marginLeft={"10px"} flexDirection={"column"} width={"50vw"} marginTop={"2vh"}>
@@ -249,17 +249,17 @@ export default function ProductForm(props: ProductButtonProps) {
               <Box sx={{ width: "20vw", height: "2vh" }}>
                 <FileUploader children={<DragAndDrap file={file} />} handleChange={handleChange} multiple name="file" />
                 <Stack flexWrap={'wrap'} direction={'row'} gap={2}>
-                    {imageUrls?.map((a, index) => (
-                      <Box key={index} className="image" sx={{ width: '80px', height: '80px', position: 'relative' }}>
-                          {/* <MuiImageSlider images={imageUrls}/> */}
-                            <img src={a} alt="" style={{borderRadius:"20px" ,position: 'absolute', bottom: '255px', left: '11px',width:"350px",height:"325px"}} />
-                            <IconButton onClick={() => {
-                                deleteImg(index)
-                            }} sx={{ position: 'absolute', bottom: '555px', left: '11px', top: '0px', right: '5px', height: '15px', width: '15px', color: 'black' }}><CloseIcon sx={{  position: 'absolute', bottom: '500px', right: '16px',height: '25px', width: '25px' }} /></IconButton>
-                        </Box>
-                    ))}
+                  {imageUrls?.map((a, index) => (
+                    <Box key={index} className="image" sx={{ width: '80px', height: '80px', position: 'relative' }}>
+                      {/* <MuiImageSlider images={imageUrls}/> */}
+                      <img src={a} alt="" style={{ borderRadius: "20px", position: 'absolute', bottom: '255px', left: '11px', width: "350px", height: "325px" }} />
+                      <IconButton onClick={() => {
+                        deleteImg(index)
+                      }} sx={{ position: 'absolute', bottom: '555px', left: '11px', top: '0px', right: '5px', height: '15px', width: '15px', color: 'black' }}><CloseIcon sx={{ position: 'absolute', bottom: '500px', right: '16px', height: '25px', width: '25px' }} /></IconButton>
+                    </Box>
+                  ))}
                 </Stack>
-                
+
                 <Stack direction={"row"} marginTop={"100px"} gap={"10px"}>
                   <Button color="primary" onClick={handleSubmit}
                     sx={{
@@ -275,7 +275,7 @@ export default function ProductForm(props: ProductButtonProps) {
                   </Button>
                   <Button color="primary" onClick={handleCancle}
                     sx={{
-                      width: "100px", bgcolor: "white", color: "black",border:"1px solid black", "&:hover": {
+                      width: "100px", bgcolor: "white", color: "black", border: "1px solid black", "&:hover": {
                         backgroundColor: "white",
                       },
                       "&:focus-within": {
@@ -293,7 +293,7 @@ export default function ProductForm(props: ProductButtonProps) {
             </Stack>
           </Grid>
         </Stack>
-        <ToastContainer autoClose={1000}/>
+        <ToastContainer autoClose={1000} />
 
       </Stack>
     </Box>

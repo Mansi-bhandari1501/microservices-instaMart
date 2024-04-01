@@ -12,6 +12,7 @@ const persistConfig = {
 const rootreducer = combineReducers({
     auth: authSlice,
     product: productSlice,
+
    
 })
 const persistedReducer = persistReducer(persistConfig, rootreducer)

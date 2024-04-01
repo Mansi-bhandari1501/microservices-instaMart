@@ -38,7 +38,7 @@ import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars';
     </Stack>
     <Stack width={"100%"} flexDirection={'row'} justifyContent={'right'}>
     <Box sx={{ minWidth: 240, width:"100px", mr: '50px'  }}>
-    <FormControl  sx={{ mb: -3, width: '200px' }}>
+    <FormControl  sx={{ mb: 1, width: '200px' }}>
         <InputLabel  sx={{color:"black",}}>Change Status</InputLabel>
         <Select
           value={ status}

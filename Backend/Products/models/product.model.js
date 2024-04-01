@@ -1,6 +1,10 @@
 import mongoose from "mongoose"
 
 const productSchema = new mongoose.Schema({
+    uuId:{
+        type: String,
+        // required: true,
+    },
     productName:{
         type: String,
         // required: true,
@@ -10,14 +14,15 @@ const productSchema = new mongoose.Schema({
         
         default : null
     },
-    // rating:{
-    //     type:number,
-    // },
-    // reveiw:{
-    //     type:String,
-    // },
-    price:{
-        type:String,
+
+    regularPrice:{
+        type:Number,
+    },
+    salePrice:{
+        type:Number,
+    },
+    sku:{
+        type:Number,
     },
     description:{
         type: String,
@@ -26,6 +31,12 @@ const productSchema = new mongoose.Schema({
         type: String,
     }],
     category:{
+        type: String
+    },
+    brand:{
+        type: String
+    },
+    tag:{
         type: String
     },
     sellerId:{

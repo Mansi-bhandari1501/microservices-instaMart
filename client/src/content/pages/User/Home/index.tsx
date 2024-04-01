@@ -27,8 +27,8 @@ const Home = () => {
 
       <Box sx={{m: '20px 200px 20px 200px'}}>
         <Grid container gap={4}>
-          <ProductItemCard />
-          <ProductItemCard />
+          {/* <ProductItemCard />
+          <ProductItemCard /> */}
         </Grid>
       </Box>
     </Box>

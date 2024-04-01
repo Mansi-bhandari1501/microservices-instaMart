@@ -2,7 +2,7 @@ import { Box, FormControl, InputLabel, Paper, Select, Stack, Typography, SelectC
 import React, { useState } from 'react'
 // import CustomButton from '../../components/Button/CustomButton';
 import SignUpImg from "../../../asserts/images/Signup.png"
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../feature/Auth/authAction';
 import { useAppDispatch } from '../../../app/hooks';
@@ -122,7 +122,7 @@ dispatch(registerUser(data))
 
         />
 
-<Typography sx={{fontSize: '16px', fontWeight: 'bold', mb: 1}}>Confirm Password</Typography>
+{/* <Typography sx={{fontSize: '16px', fontWeight: 'bold', mb: 1}}>Confirm Password</Typography>
         <InputBase 
             placeholder='Confirm Password'
             type='password'
@@ -135,10 +135,20 @@ dispatch(registerUser(data))
                 mb: 3
             }}
 
-        />
+        /> */}
         
             <Button onClick={(e) => {handleSubmit(e)}} color='primary' variant='contained' sx={{textTransform: 'none',borderRadius: '10px',fontSize: '16px', width: '90%', fontWeight: '500', boxShadow: 'none', mb: 4}}>Create Account</Button>
-        
+            <p className="quotes">
+                Already have account?{" "}
+                <span>
+                    <NavLink
+                        style={{ color: "#0a66c2", textDecoration: "none", fontWeight: 600 }}
+                        to="/login"
+                    >
+                        LogIn
+                    </NavLink>
+                </span>
+            </p>
         </Stack>
       </Paper>
     </Box>

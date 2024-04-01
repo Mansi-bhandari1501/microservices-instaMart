@@ -31,7 +31,7 @@ ACTION_TYPE.ADD_PRODUCT,
   }
 );
 export const getAllProduct = createAsyncThunk(
-ACTION_TYPE.ADD_PRODUCT,
+ACTION_TYPE.GET_PRODUCT,
   async (data: product , { rejectWithValue }) => {
     try {
       
