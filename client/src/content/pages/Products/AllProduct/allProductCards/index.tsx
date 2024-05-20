@@ -25,16 +25,7 @@ function CardsForm() {
               quantity={content.quantity || ''}
             // tag= {content.tag}
             />
-            {/* <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard /> */}
+          
 
           </div>
         ))}

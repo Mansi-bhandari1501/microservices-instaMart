@@ -4,15 +4,19 @@ import ProductHeader from './productHeader'
 import TableForm from './TableForm'
 // import ProductCard from '../../../../components/ProductCards'
 import CardsForm from './allProductCards'
+import Header from '../../../../layouts/SlidebarLayout/Navbar'
 
 function ProductDisplayAdmin() {
     const [table, setTable] = useState<boolean>(false)
     return (
-        <Stack p={2} gap={2} height={"83vh"} >
+        <>
+        {/* <Header/> */}
             <ProductHeader setTable={setTable} />
+        <Stack p={2} gap={2} height={"83vh"} >
             {table ? <TableForm /> : <CardsForm />}
 
         </Stack>
+        </>
     )
 }
 
